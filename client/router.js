@@ -23,6 +23,14 @@ const routes = [
     }
 ];
 
+const defaultMeta = {
+    transitionName: 'slide'
+};
+
+routes.forEach(route => {
+    route.meta = route.meta ? route.meta : defaultMeta;
+});
+
 export function createRouter(){
     return new VueRouter({
         routes,
