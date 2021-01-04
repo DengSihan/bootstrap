@@ -3,6 +3,9 @@
 /public/storage
 /storage/*.key
 /vendor
+/.nuxt
+/client/static/sw.js
+/client/static/uploads
 .env
 .env.backup
 .phpunit.result.cache
