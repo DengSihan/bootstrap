@@ -80,7 +80,8 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => env('APP_LOCALE', 'en'),
+    'locales_available' => explode(',', env('LOCALES_AVAILABLE', 'en-US,zh-CN')),
 
     /*
     |--------------------------------------------------------------------------
@@ -93,7 +94,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => env('APP_LOCALE', 'en'),
 
     /*
     |--------------------------------------------------------------------------

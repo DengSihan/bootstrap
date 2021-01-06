@@ -29,6 +29,10 @@ const defaultMeta = {
 
 routes.forEach(route => {
     route.meta = route.meta ? route.meta : defaultMeta;
+    if (!route.path.startsWith(`/:locale?`) && !route.path.startsWith(`/admin`)) {
+        route.path = `/:locale?${route.path}`;
+        route.props = true;
+    }
 });
 
 export function createRouter(){

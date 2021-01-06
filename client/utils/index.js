@@ -1,3 +1,5 @@
+import config from '@/config';
+
 export function cookieFromRequest(request, key){
     if (!request.headers.cookie) {
         return;
@@ -8,4 +10,10 @@ export function cookieFromRequest(request, key){
     if (cookie) {
         return cookie.split('=')[1];
     }
+}
+
+export function localeFromRequest(request){
+    const url = request.originalUrl;
+    let locale = url.split('/')[1];
+    return config.locale.available.includes(locale) ? locale : config.locale.default;
 }

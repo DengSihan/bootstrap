@@ -1,13 +1,14 @@
 import axios from 'axios';
+import config from '@/config';
 
-export default ({ app, store, redirect }) => {
+export default ({ app, store, redirect, req } ) => {
 
-    axios.default.baseURL = process.env.API_URL;
+    axios.default.baseURL = config.api.url;
 
     // Request interceptor
     axios.interceptors.request.use(request => {
 
-        request.baseURL = process.env.API_URL;
+        request.baseURL = config.api.url;
 
         const token = store.getters['auth/token'];
         if (token) {
@@ -16,7 +17,11 @@ export default ({ app, store, redirect }) => {
 
         const locale = store.getters['locale/locale'];
         if (locale) {
-            request.headers.common.Language = locale;
+            request.headers.common['Accept-Language'] = locale;
+        }
+
+        if (process.server) {
+            request.headers.common['X-Forwarded-For'] = req.headers['x-forwarded-for'];
         }
 
         return request;
@@ -31,7 +36,6 @@ export default ({ app, store, redirect }) => {
             console.log(status, response);
         }
         else if (status === 401 && store.getters['auth/check']) {
-
             store.commit('auth/logout');
         }
 

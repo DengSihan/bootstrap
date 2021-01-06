@@ -1,7 +1,7 @@
 <template>
     <fragment>
         <header>
-            <nuxt-link :to="{name: 'index'}">index</nuxt-link>
+            <nuxt-link :to="generateRoute({name: 'index'})">index</nuxt-link>
         </header>
         <transition
             mode="out-in"

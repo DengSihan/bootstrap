@@ -1,0 +1,8 @@
+{
+    "login": "login",
+    "username": "username",
+    "password": "password",
+    "verification": "verification",
+    "refresh_captcha": "refresh captcha",
+    "remember_me": "remember me"
+}

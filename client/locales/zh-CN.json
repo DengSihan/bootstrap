@@ -1,0 +1,8 @@
+{
+    "login": "登录",
+    "username": "用户名",
+    "password": "密码",
+    "verification": "校验码",
+    "refresh_captcha": "刷新校验码",
+    "remember_me": "记住我"
+}

@@ -5,10 +5,10 @@
         </h1>
         <ol>
             <li>
-                <nuxt-link :to="{name: 'login'}">login</nuxt-link>
+                <nuxt-link :to="generateRoute({name: 'login'})">login</nuxt-link>
             </li>
             <li>
-                <nuxt-link :to="{name: 'register'}">register</nuxt-link>
+                <nuxt-link :to="generateRoute({name: 'register'})">register</nuxt-link>
             </li>
         </ol>
     </main>

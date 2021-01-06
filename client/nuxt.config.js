@@ -8,9 +8,12 @@ module.exports = {
         '~plugins/axios',
         '~/plugins/vuesax',
         '~/plugins/fragment',
+        '~/plugins/i18n',
+        '~/plugins/helper',
         { src: '~/plugins/lazyload', ssr: false },
         { src: '~/plugins/localforage', ssr: false },
-        { src: '~/plugins/waves-effect', ssr: false }
+        { src: '~/plugins/waves-effect', ssr: false },
+        '~/mixins/global',
     ],
 
     buildModules: [
@@ -26,12 +29,15 @@ module.exports = {
                 'APP_DESCRIPTION',
                 'APP_URL',
                 'API_URL',
+                'APP_LOCALE',
+                'LOCALES_AVAILABLE'
             ]
         }]
     ],
 
     router: {
         middleware: [
+            'locale',
             'check-auth'
         ]
     },
