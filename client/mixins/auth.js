@@ -1,4 +1,3 @@
-import axios from 'axios';
 import UsernameInput from '@/components/auth/form/username-input';
 import PasswordInput from '@/components/auth/form/password-input';
 import RememberMeCheckbox from '@/components/auth/form/remember-me-checkbox';
@@ -27,8 +26,8 @@ export default{
             }
         }
     },
-    asyncData(){
-        return axios.post(`/auth/captchas`)
+    asyncData({ $axios }){
+        return $axios.post(`/auth/captchas`)
             .then(({ data }) => {
                 return {
                     captcha: data
@@ -48,7 +47,7 @@ export default{
     },
     methods: {
         refreshCaptcha(){
-            axios.post(`/auth/captchas`)
+            this.$axios.post(`/auth/captchas`)
                 .then(({ data }) => {
                     this.captcha = data;
                 });
@@ -56,7 +55,7 @@ export default{
         makeRequest(api){
             this.$nuxt.$loading.start();
             const loading = this.$vs.loading();
-            axios.post(api, {
+            this.$axios.post(api, {
                     captcha_key: this.captcha.key,
                     ...this.form
                 })

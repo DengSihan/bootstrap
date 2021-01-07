@@ -1,14 +1,12 @@
-import axios from 'axios';
-
-export default async ({ store }) => {
+export default async ({ $axios, store }) => {
 
     const token = store.getters['auth/token'];
 
     if (process.server) {
         if (token) {
-            axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+            $axios.defaults.headers.common.Authorization = `Bearer ${token}`;
         } else {
-            delete axios.defaults.headers.common.Authorization;
+            delete $axios.defaults.headers.common.Authorization;
         }
     }
 

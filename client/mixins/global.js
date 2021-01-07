@@ -45,6 +45,6 @@ Vue.mixin({
                 }
             }
             return route;
-        },
+        }
     }
 });

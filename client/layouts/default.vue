@@ -9,7 +9,8 @@
             @beforeLeave="beforeLeave"
             @enter="enter"
             @afterEnter="afterEnter">
-            <router-view/>
+            <router-view v-if="!nuxt.err"/>
+            <error-view :error="nuxt.err" v-else/>
         </transition>
         <footer class="border-t-4 border-0 border-solid border-gray-900">
             <i>footer</i>
@@ -17,12 +18,20 @@
     </fragment>
 </template>
 <script type="text/javascript">
+import Vue from 'vue';
+import ErrorView from '@/layouts/error';
 export default{
+    components: {
+        ErrorView
+    },
     data() {
         return {
             prevHeight: 0,
             transitionName: 'fade'
         };
+    },
+    beforeCreate () {
+        Vue.util.defineReactive(this, 'nuxt', this.$root.$options.nuxt);
     },
     created() {
         this.$router.beforeEach((to, from, next) => {

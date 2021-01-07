@@ -20,6 +20,7 @@ module.exports = {
         '@nuxtjs/router',
         '@nuxtjs/tailwindcss',
         '@nuxtjs/pwa',
+        '@nuxtjs/axios',
 
         // share .env file for both Nuxt and Laravel
         ['@nuxtjs/dotenv', {
