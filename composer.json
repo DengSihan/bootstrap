@@ -16,7 +16,7 @@
         "laravel/framework": "^8.12",
         "laravel/tinker": "^2.5",
         "schuppo/password-strength": "^2.2",
-        "spatie/laravel-permission": "^3.18",
+        "spatie/laravel-permission": "~3.0",
         "tymon/jwt-auth": "^1.0"
     },
     "require-dev": {

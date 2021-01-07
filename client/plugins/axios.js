@@ -26,14 +26,17 @@ export default ({ $axios, store, req, error:nuxtError  }) => {
         if (status === 401 && store.getters['auth/check']) {
             store.commit('auth/logout');
         }
-        else{
+        else if([429].includes(status)){
             nuxtError({
                 statusCode: error.response.status,
                 message: error.response.statusText,
                 detail: error.response.data.message
             });
+            return Promise.resolve(false);
         }
-        return Promise.resolve(false);
+        else{
+            return Promise.reject(error);
+        }
     });
 }
 
