@@ -1,4 +1,8 @@
 export default{
+    app: {
+        name: process.env.APP_NAME,
+        description: process.env.APP_DESCRIPTION
+    },
     locale: {
         default: process.env.APP_LOCALE,
         available: process.env.LOCALES_AVAILABLE.split(',')

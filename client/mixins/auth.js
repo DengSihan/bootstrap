@@ -11,6 +11,7 @@ export default{
         CaptchaInput,
         Social
     },
+    middleware: 'guest',
     data(){
         return {
             remember: false,

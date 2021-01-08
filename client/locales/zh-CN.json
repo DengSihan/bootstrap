@@ -5,6 +5,10 @@
     "verification": "校验码",
     "refresh_captcha": "刷新校验码",
     "remember_me": "记住我",
-    "login_with": "使用 {social} 账户登录",
-    "or": "或者"
+    "login_with": "使用 {social} 登录",
+    "register": "注册",
+    "logout": "注销",
+    "are_you_sure_to_logout": "确定退出登录？",
+    "sure": "确定",
+    "cancel": "取消"
 }

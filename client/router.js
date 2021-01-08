@@ -7,6 +7,11 @@ const page = path => () => import(`~/pages/${path}`).then(m => m.default || m);
 
 const routes = [
     {
+        path: '/logout',
+        name: 'logout',
+        component: page('logout.vue')
+    },
+    {
         path: '/login',
         name: 'login',
         component: page('login.vue')

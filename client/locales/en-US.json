@@ -6,5 +6,9 @@
     "refresh_captcha": "refresh captcha",
     "remember_me": "remember me",
     "login_with": "sign in with {social}",
-    "or": "or"
+    "register": "register",
+    "logout": "logout",
+    "are_you_sure_to_logout": "are you sure to logout?",
+    "sure": "sure",
+    "cancel": "cancel"
 }
