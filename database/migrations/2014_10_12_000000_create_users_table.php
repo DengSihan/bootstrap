@@ -15,16 +15,13 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
+            $table->uuid('id')->primary();
+            $table->string('name')->unique();
+            $table->string('password')->nullable();
             $table->timestamps();
+            $table->string('avatar')->nullable();
+            $table->json('social')->nullable();
         });
-
-        DB::unprepared("ALTER TABLE users AUTO_INCREMENT = 10000;");
     }
 
     /**

@@ -1,6 +1,6 @@
 <?php
 
-$socials = 'github|apple';
+$socials = 'github|apple|weixin';
 
 Route::group([
     'namespace' => 'Auth',

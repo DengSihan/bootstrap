@@ -36,6 +36,16 @@ return [
         'redirect' => env('API_URL') . '/auth/socials/github/authorizations/callback',
     ],
 
+    'apple' => [
+        'client_id' => env('APPLE_CLIENT_ID'),
+        'client_secret' => env('APPLE_CLIENT_SECRET'),
+        'redirect' => env('API_URL') . '/auth/socials/apple/authorizations/callback',
+    ],
 
+    'weixin' => [
+        'client_id' => env('WEIXIN_CLIENT_ID'),
+        'client_secret' => env('WEIXIN_CLIENT_SECRET'),
+        'redirect' => env('API_URL') . '/auth/socials/weixin/authorizations/callback',
+    ],
 
 ];

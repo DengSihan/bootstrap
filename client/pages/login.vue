@@ -28,17 +28,12 @@
                     </vs-button>
                 </div>
             </form>
-
-            <a :href="`${api}/auth/socials/github/authorizations`"
-                v-waves>
-                github
-            </a>
+            <social class="my-10"/>
         </section>
     </main>
 </template>
 <script type="text/javascript">
 import auth from '@/mixins/auth';
-import config from '@/config';
 export default{
     head(){
         return {
@@ -47,11 +42,6 @@ export default{
     },
     mixins: [
         auth
-    ],
-    data(){
-        return {
-            api: config.api.url
-        }
-    }
+    ]
 }
 </script>

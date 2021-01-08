@@ -17,6 +17,9 @@
         "laravel/socialite": "^5.1",
         "laravel/tinker": "^2.5",
         "schuppo/password-strength": "^2.2",
+        "socialiteproviders/apple": "^4.1",
+        "socialiteproviders/github": "^4.1",
+        "socialiteproviders/weixin": "^4.1",
         "spatie/laravel-permission": "~3.0",
         "tymon/jwt-auth": "^1.0"
     },
