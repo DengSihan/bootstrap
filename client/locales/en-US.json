@@ -1,6 +1,6 @@
 {
     "login": "login",
-    "username": "username",
+    "name": "name",
     "password": "password",
     "verification": "verification",
     "refresh_captcha": "refresh captcha",

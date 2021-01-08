@@ -1,10 +1,10 @@
-import UsernameInput from '@/components/auth/form/username-input';
+import NameInput from '@/components/auth/form/name-input';
 import PasswordInput from '@/components/auth/form/password-input';
 import RememberMeCheckbox from '@/components/auth/form/remember-me-checkbox';
 import CaptchaInput from '@/components/auth/form/captcha-input';
 export default{
     components: {
-        UsernameInput,
+        NameInput,
         PasswordInput,
         RememberMeCheckbox,
         CaptchaInput
@@ -14,13 +14,13 @@ export default{
             remember: false,
 
             form: {
-                username: '',
+                name: '',
                 password: '',
                 verification: ''
             },
 
             errors: {
-                username: [],
+                name: [],
                 password: [],
                 verification: []
             }
@@ -35,8 +35,8 @@ export default{
             });
     },
     watch: {
-        'form.username'(value){
-            if (value) this.errors.username = [];
+        'form.name'(value){
+            if (value) this.errors.name = [];
         },
         'form.password'(value){
             if (value) this.errors.password = [];

@@ -21,6 +21,13 @@
 import Vue from 'vue';
 import ErrorView from '@/layouts/error';
 export default{
+    head(){
+        return {
+            htmlAttrs: {
+                lang: this.$store.state.locale.locale
+            }
+        }
+    },
     components: {
         ErrorView
     },

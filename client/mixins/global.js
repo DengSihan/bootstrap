@@ -1,6 +1,10 @@
 import Vue from 'vue';
+import { mapGetters } from 'vuex';
 import config from '@/config';
 Vue.mixin({
+    computed: mapGetters({
+        logged: 'auth/user'
+    }),
     methods: {
         handleAxiosError(error){
             this.notify({

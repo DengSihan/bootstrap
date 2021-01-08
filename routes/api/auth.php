@@ -1,10 +1,20 @@
 <?php
 
+$socials = 'github|apple';
+
 Route::group([
     'namespace' => 'Auth',
     'prefix' => 'auth',
     'middleware' => ['throttle:'.config('api.rate_limits.sign')]
-], function(){
+], function() use ($socials){
+
+    // social login redirect
+    Route::get('socials/{type}/authorizations', 'SocialAuthorizationsController@redirect')
+        ->where('type', $socials);
+
+    // social login callback
+    Route::get('socials/{type}/authorizations/callback', 'SocialAuthorizationsController@callback')
+        ->where('type', $socials);
 
     // login
     Route::post('authorizations', 'AuthorizationsController@store');

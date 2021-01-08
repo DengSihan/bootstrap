@@ -12,7 +12,7 @@ class AuthorizationsController extends Controller
     use TokenResponser;
 
     public function store(LoginRequest $request){
-        $credentials['username'] = $request->username;
+        $credentials['name'] = $request->name;
         $credentials['password'] = $request->password;
 
         if ($token = auth()->setTTL(config('auth.validity_period'))->attempt($credentials)) {
