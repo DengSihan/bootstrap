@@ -47,6 +47,11 @@ const routes = [
         component: page('register')
     },
     {
+        path: '/forget-password',
+        name: 'forget-password',
+        component: page('forget-password')
+    },
+    {
         path: '/',
         name: 'index',
         component: page('index')

@@ -28,6 +28,14 @@
                     </vs-button>
                 </div>
             </form>
+            <div class="my-6 flex justify-between items-center">
+                <nuxt-link
+                    class="capitalize"
+                    :to="generateRoute({ name: 'register' })">{{ $t('new_here') }}</nuxt-link>
+                <nuxt-link
+                    class="capitalize"
+                    :to="generateRoute({ name: 'forget-password' })">{{ $t('forget_password') }}</nuxt-link>
+            </div>
             <social class="my-10"/>
         </section>
     </main>

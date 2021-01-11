@@ -27,6 +27,9 @@ Route::group([
     // captchas
     Route::resource('captchas', 'CaptchasController', ['only' => ['store']]);
 
+    // register
+    Route::post('users', 'UserController@store');
+
     // need authorizations
     Route::group([
         'middleware' => ['auth']
