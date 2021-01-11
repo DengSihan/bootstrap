@@ -21,7 +21,8 @@ class SocialAuthorizationsController extends Controller
 
         if ($request->action === 'new') {
             $user = User::create([
-                    'name' => $request->name,
+                    'email' => $request->email,
+                    'name' => $template['name'],
                     'password' => \Hash::make($request->password),
                     'avatar' => $template['avatar'],
                     'social' => $template['social']
@@ -33,12 +34,12 @@ class SocialAuthorizationsController extends Controller
             return response()->json($this->respondWithToken($token), 201);
         }
         else{
-            $credentials['name'] = $request->name;
+            $credentials['email'] = $request->email;
             $credentials['password'] = $request->password;
 
             if (Auth::attempt($credentials)) {
 
-                $user = User::where('name', '=', $request->name)->first();
+                $user = User::where('email', '=', $request->email)->first();
 
                 $user->avatar = $template['avatar'];
 
@@ -91,9 +92,8 @@ class SocialAuthorizationsController extends Controller
             return redirect(config('app.url') . '/social-certificate/' . $key, 302);
         }
         else{
-            $name = $this->getUnqiueName($credential->name);
             $template = [
-                'name' => $name,
+                'name' => $credential->name,
                 'avatar' => $credential->avatar,
                 'social' => [
                     $type => $credential->id
@@ -103,15 +103,6 @@ class SocialAuthorizationsController extends Controller
             $key = Str::random(15);
             Cache::put('social_' . $key, $template, $expired_at);
             return redirect(config('app.url') . '/social-login/' . $key, 302);
-        }
-    }
-
-    protected function getUnqiueName($name){
-        if (User::where('name', '=', $name)->count()) {
-            return $this->getUnqiueName($name . str_pad(random_int(1, 99), 2, 0, STR_PAD_LEFT));
-        }
-        else{
-            return $name;
         }
     }
 }

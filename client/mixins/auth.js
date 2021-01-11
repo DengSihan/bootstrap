@@ -1,4 +1,4 @@
-import NameInput from '@/components/auth/form/name-input';
+import EmailInput from '@/components/auth/form/email-input';
 import PasswordInput from '@/components/auth/form/password-input';
 import RememberMeCheckbox from '@/components/auth/form/remember-me-checkbox';
 import Social from '@/components/auth/social';
@@ -10,7 +10,7 @@ export default{
         captcha
     ],
     components: {
-        NameInput,
+        EmailInput,
         PasswordInput,
         RememberMeCheckbox,
         Social
@@ -21,21 +21,21 @@ export default{
             remember: false,
 
             form: {
-                name: '',
+                email: '',
                 password: '',
                 verification: ''
             },
 
             errors: {
-                name: [],
+                email: [],
                 password: [],
                 verification: []
             }
         }
     },
     watch: {
-        'form.name'(value){
-            if (value) this.errors.name = [];
+        'form.email'(value){
+            if (value) this.errors.email = [];
         },
         'form.password'(value){
             if (value) this.errors.password = [];

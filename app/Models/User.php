@@ -23,7 +23,8 @@ class User extends Authenticatable implements JWTSubject
         'name',
         'password',
         'avatar',
-        'social'
+        'social',
+        'email'
     ];
 
     /**
@@ -33,7 +34,8 @@ class User extends Authenticatable implements JWTSubject
      */
     protected $hidden = [
         'password',
-        'social'
+        'social',
+        'email'
     ];
 
     /**
@@ -43,7 +45,8 @@ class User extends Authenticatable implements JWTSubject
      */
     protected $casts = [
         'id' => 'string',
-        'social' => 'array'
+        'social' => 'array',
+        'email_verified_at' => 'datetime',
     ];
 
 

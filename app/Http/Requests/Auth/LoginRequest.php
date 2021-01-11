@@ -14,7 +14,7 @@ class LoginRequest extends FormRequest
     public function rules()
     {
         return array_merge($this->captchaRules(), [
-            'name' => 'required|max:64|min:4',
+            'email' => 'required|email',
             'password' => 'required|case_diff|numbers|symbols|min:6',
         ]);
     }

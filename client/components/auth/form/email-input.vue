@@ -5,12 +5,13 @@
         class="my-6"
         :value="value"
         @input="$emit('input', $event)"
-        autocomplete="name"
+        autocomplete="username"
+        type="email"
         :name="name"
         :required="required"
-        :label-placeholder="$t('name').toCapitalizePhrases()">
+        :label-placeholder="$t('email').toCapitalizePhrases()">
         <template #icon>
-            <i class='mdi mdi-account text-xl'></i>
+            <i class='mdi mdi-email text-xl'></i>
         </template>
         <template #message-danger v-if="errors.length">
             <ul class="pl-4 my-4">
@@ -35,7 +36,7 @@ export default{
             required: false
         },
         name: {
-            default: 'name',
+            default: 'username',
             required: false
         }
     }

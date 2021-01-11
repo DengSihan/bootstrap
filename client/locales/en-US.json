@@ -1,6 +1,7 @@
 {
     "login": "login",
     "name": "name",
+    "email": "email",
     "password": "password",
     "verification": "verification",
     "refresh_captcha": "refresh captcha",

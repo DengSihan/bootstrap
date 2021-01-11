@@ -5,10 +5,10 @@
                 {{ $t('login').toCapitalizePhrases() }}
             </h1>
             <form @submit.prevent="makeRequest(`/auth/authorizations`)">
-                <name-input
+                <email-input
                     class="my-6"
-                    v-model="form.name"
-                    :errors="errors.name"/>
+                    v-model="form.email"
+                    :errors="errors.email"/>
                 <password-input
                     class="my-6"
                     v-model="form.password"

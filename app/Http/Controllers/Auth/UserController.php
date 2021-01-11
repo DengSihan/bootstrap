@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\Auth\RegisterRequest;
 use App\Http\Requests\Auth\Account\UpdatePasswordRequest;
 use App\Models\User;
+use Illuminate\Support\Str;
 use Hash;
 use Auth;
 
@@ -20,7 +21,7 @@ class UserController extends Controller
 
     public function store(RegisterRequest $request){
         $user = User::create([
-            'username' => $request->username,
+            'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
         return response()->json($this->respondWithToken(Auth::setTTL(config('auth.validity_period'))->login($user)), 201);

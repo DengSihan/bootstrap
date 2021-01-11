@@ -21,13 +21,12 @@ class SocialLoginRequest extends FormRequest
                 'required',
                 Rule::in(['new', 'exist'])
             ],
-            'name' => [
+            'email' => [
                 'required',
-                'max:64',
-                'min:4',
+                'email',
                 function($attribute, $value, $fail){
                     $action = $this->input('action');
-                    if ($action === 'new' && \DB::table('users')->where('name', '=', $value)->count()) {
+                    if ($action === 'new' && \DB::table('users')->where('email', '=', $value)->count()) {
                         $fail(__('validation.unique', ['attribute' => $attribute]));
                     }
                 }

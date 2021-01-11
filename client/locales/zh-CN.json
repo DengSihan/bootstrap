@@ -1,6 +1,7 @@
 {
     "login": "登录",
     "name": "用户名",
+    "email": "电子邮箱",
     "password": "密码",
     "verification": "校验码",
     "refresh_captcha": "刷新校验码",
