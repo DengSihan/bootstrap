@@ -16,5 +16,6 @@
     "unbind": "解除绑定",
     "bind": "添加绑定",
     "login_as_new_user": "以新账号登录",
-    "bind_to_exist_account": "绑定到已有账户"
+    "bind_to_exist_account": "绑定到已有账户",
+    "logging_in": "登录中"
 }

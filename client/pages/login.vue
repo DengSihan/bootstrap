@@ -24,7 +24,7 @@
                     v-model="remember"/>
                 <div class="my-6 flex justify-center">
                     <vs-button type="submit" square block class="m-0">
-                         {{ $t('login').toUpperCase() }}<i class="mdi mdi-send text-2xl pl-2"></i>
+                        {{ $t('login').toUpperCase() }}<i class="mdi mdi-send text-2xl pl-2"></i>
                     </vs-button>
                 </div>
             </form>
@@ -42,28 +42,6 @@ export default{
     },
     mixins: [
         auth
-    ],
-    mounted(){
-        this.$nextTick(() => {
-            if (this.$route.query.certificate) {
-                this.$nuxt.$loading.start();
-                this.loading = this.$vs.loading();
-                this.$axios.post(`/auth/socials/tokens`, {
-                        certificate: this.$route.query.certificate
-                    })
-                    .then(({ data }) => {
-                        this.handleToken(data);
-                    })
-                    .catch(error => {
-                        this.$nuxt.$loading.finish();
-                        this.loading.close();
-                        this.handleAxiosError(error);
-                        this.$router.push(this.generateRoute({
-                            name: 'login'
-                        }));
-                    });
-            }
-        });
-    },
+    ]
 }
 </script>

@@ -16,5 +16,6 @@
     "unbind": "unbind",
     "bind": "bind",
     "login_as_new_user": "login as a new user",
-    "bind_to_exist_account": "bind to a exist account"
+    "bind_to_exist_account": "bind to a exist account",
+    "logging_in": "logging_in"
 }

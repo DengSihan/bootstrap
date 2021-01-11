@@ -3,7 +3,11 @@ import PasswordInput from '@/components/auth/form/password-input';
 import RememberMeCheckbox from '@/components/auth/form/remember-me-checkbox';
 import CaptchaInput from '@/components/auth/form/captcha-input';
 import Social from '@/components/auth/social';
+import token from '@/mixins/token';
 export default{
+    mixins: [
+        token
+    ],
     components: {
         NameInput,
         PasswordInput,
@@ -26,9 +30,7 @@ export default{
                 name: [],
                 password: [],
                 verification: []
-            },
-
-            loading: null
+            }
         }
     },
     asyncData({ $axios }){
@@ -72,21 +74,6 @@ export default{
                     loading.close();
                     this.handleError(error);
                 });
-        },
-        handleToken(data){
-            this.$nuxt.$loading.increase(50);
-            // save the token.
-            this.$store.dispatch('auth/saveToken', {
-                token: data.access_token,
-                remember: this.remember
-            });
-
-            // fetch the user.
-            this.$store.dispatch('auth/fetchUser').then(() => {
-                this.$nuxt.$loading.finish();
-                this.loading ? this.loading.close() : true;
-                this.$router.push(this.logged ? this.$route.query.from || '/' : this.$route.path);
-            });
         },
         handleError(error){
             this.$nuxt.$loading.finish();

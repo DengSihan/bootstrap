@@ -27,9 +27,14 @@ const routes = [
         component: page('login')
     },
     {
-        path: '/social-login',
+        path: '/social-login/:social',
         name: 'social-login',
         component: page('social-login')
+    },
+    {
+        path: '/social-certificate/:certificate',
+        name: 'social-certificate',
+        component: page('social-certificate')
     },
     {
         path: '/register',

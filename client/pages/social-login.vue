@@ -62,7 +62,7 @@ export default{
         }
     },
     asyncData({ $axios, redirect, route, request }){
-        if (!route.query.social) {
+        if (!route.params.social) {
             let locale = localeFromRequest(route.fullPath);
             redirect(`${locale === config.locale.default ? '' : `/${locale}`}/login`);
         }
@@ -83,7 +83,7 @@ export default{
             this.loading = this.$vs.loading();
 
             this.$axios.post(`/auth/socials/authorizations`, {
-                    social: this.$route.query.social,
+                    social: this.$route.params.social,
                     action: action,
                     captcha_key: this.captcha.key,
                     ...this.form

@@ -88,7 +88,7 @@ class SocialAuthorizationsController extends Controller
 
             $key = Str::random(15);
             Cache::put('certificate_' . $key, $user->id, $expired_at);
-            return redirect(config('app.url') . '/login?certificate=' . $key, 302);
+            return redirect(config('app.url') . '/social-certificate/' . $key, 302);
         }
         else{
             $name = $this->getUnqiueName($credential->name);
@@ -102,7 +102,7 @@ class SocialAuthorizationsController extends Controller
 
             $key = Str::random(15);
             Cache::put('social_' . $key, $template, $expired_at);
-            return redirect(config('app.url') . '/social-login?social=' . $key, 302);
+            return redirect(config('app.url') . '/social-login/' . $key, 302);
         }
     }
 
