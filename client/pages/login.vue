@@ -42,6 +42,28 @@ export default{
     },
     mixins: [
         auth
-    ]
+    ],
+    mounted(){
+        this.$nextTick(() => {
+            if (this.$route.query.certificate) {
+                this.$nuxt.$loading.start();
+                this.loading = this.$vs.loading();
+                this.$axios.post(`/auth/socials/tokens`, {
+                        certificate: this.$route.query.certificate
+                    })
+                    .then(({ data }) => {
+                        this.handleToken(data);
+                    })
+                    .catch(error => {
+                        this.$nuxt.$loading.finish();
+                        this.loading.close();
+                        this.handleAxiosError(error);
+                        this.$router.push(this.generateRoute({
+                            name: 'login'
+                        }));
+                    });
+            }
+        });
+    },
 }
 </script>

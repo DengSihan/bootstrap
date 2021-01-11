@@ -5,15 +5,15 @@
                 {{ $t('logout').toCapitalizePhrases() }}
             </h1>
             <form @submit.prevent="logout">
-                <p class="my-6 capitalize">
+                <p class="my-10 capitalize text-lg">
                     {{ $t('are_you_sure_to_logout') }}
                 </p>
                 <div class="my-6 flex justify-between">
                     <vs-button type="submit" data-action="0" square class="m-0">
-                         {{ $t('cancel').toUpperCase() }}
+                         {{ $t('cancel').toUpperCase() }}<i class="mdi mdi-close text-2xl pl-2"></i>
                     </vs-button>
                     <vs-button danger type="submit" data-action="1" square class="m-0">
-                         {{ $t('sure').toUpperCase() }}
+                         {{ $t('sure').toUpperCase() }}<i class="mdi mdi-check text-2xl pl-2"></i>
                     </vs-button>
                 </div>
             </form>
@@ -22,6 +22,11 @@
 </template>
 <script type="text/javascript">
 export default{
+    head(){
+        return {
+            title: this.$t('logout').toCapitalizePhrases()
+        }
+    },
     methods: {
         logout(e){
             if (e.submitter.getAttribute('data-action') > 0) {

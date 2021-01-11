@@ -17,3 +17,11 @@ export function localeFromRequest(request){
     let locale = url.split('/')[1];
     return config.locale.available.includes(locale) ? locale : config.locale.default;
 }
+
+export function removeEmptyKeyInObject(obj){
+    let result = {};
+    for (const [key, value] of Object.entries(obj)) {
+        if (!!value) result[key] = value;
+    }
+    return result;
+}

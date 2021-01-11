@@ -16,6 +16,11 @@ Route::group([
     Route::get('socials/{type}/authorizations/callback', 'SocialAuthorizationsController@callback')
         ->where('type', $socials);
 
+    Route::post('socials/tokens', 'SocialAuthorizationsController@tokens');
+
+    // login from social
+    Route::post('socials/authorizations', 'SocialAuthorizationsController@store');
+
     // login
     Route::post('authorizations', 'AuthorizationsController@store');
 
@@ -31,6 +36,8 @@ Route::group([
 
         // get user info
         Route::get('user', 'UsersController@show');
+        // all social account
+        Route::get('user/social', 'UsersController@social');
     });
 
 });

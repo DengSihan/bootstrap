@@ -3,28 +3,43 @@ import VueRouter from 'vue-router';
 
 Vue.use(VueRouter);
 
-const page = path => () => import(`~/pages/${path}`).then(m => m.default || m);
+const page = path => () => import(`~/pages/${path}.vue`).then(m => m.default || m);
 
 const routes = [
     {
+        path: '/account',
+        name: 'account',
+        component: page('account/index')
+    },
+    {
+        path: '/account/social',
+        name: 'account-social',
+        component: page('account/social')
+    },
+    {
         path: '/logout',
         name: 'logout',
-        component: page('logout.vue')
+        component: page('logout')
     },
     {
         path: '/login',
         name: 'login',
-        component: page('login.vue')
+        component: page('login')
+    },
+    {
+        path: '/social-login',
+        name: 'social-login',
+        component: page('social-login')
     },
     {
         path: '/register',
         name: 'register',
-        component: page('register.vue')
+        component: page('register')
     },
     {
         path: '/',
         name: 'index',
-        component: page('index.vue')
+        component: page('index')
     }
 ];
 

@@ -19,7 +19,12 @@
             <template v-else>
                 <li>
                     <nuxt-link :to="generateRoute({name: 'logout'})">
-                        logout
+                        {{ $t('logout') }}
+                    </nuxt-link>
+                </li>
+                <li>
+                    <nuxt-link :to="generateRoute({name: 'account'})">
+                        {{ $t('account') }}
                     </nuxt-link>
                 </li>
             </template>

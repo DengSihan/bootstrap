@@ -39,17 +39,6 @@ export default{
                 }
             });
     },
-    mounted(){
-        this.$nextTick(() => {
-            if (this.$route.query.token) {
-                this.$nuxt.$loading.start();
-                this.loading = this.$vs.loading();
-                this.handleToken({
-                    access_token: this.$route.query.token
-                });
-            }
-        });
-    },
     watch: {
         'form.name'(value){
             if (value) this.errors.name = [];
@@ -107,6 +96,5 @@ export default{
                 this.errors[key] = value;
             }
         }
-
     }
 }

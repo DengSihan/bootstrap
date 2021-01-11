@@ -10,5 +10,11 @@
     "logout": "注销",
     "are_you_sure_to_logout": "确定退出登录？",
     "sure": "确定",
-    "cancel": "取消"
+    "cancel": "取消",
+    "account": "账户",
+    "social_account": "第三方登录账户",
+    "unbind": "解除绑定",
+    "bind": "添加绑定",
+    "login_as_new_user": "以新账号登录",
+    "bind_to_exist_account": "绑定到已有账户"
 }

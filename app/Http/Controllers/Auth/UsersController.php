@@ -24,4 +24,8 @@ class UsersController extends Controller
         ]);
         return response()->json($this->respondWithToken(Auth::setTTL(config('auth.validity_period'))->login($user)), 201);
     }
+
+    public function social(){
+        return response()->json(Auth::user()->social ?? '{}');
+    }
 }
