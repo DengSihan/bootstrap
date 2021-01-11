@@ -1,12 +1,17 @@
 <template>
     <main>
         <h1 class="capitalize">
-            {{ $t('account ')}}
+            {{ $t('account')}}
         </h1>
         <ul>
             <li>
-                <nuxt-link :to="generateRoute({name: 'account-social'})">
+                <nuxt-link :to="generateRoute({name: 'account/social'})">
                     {{ $t('social_account') }}
+                </nuxt-link>
+            </li>
+            <li>
+                <nuxt-link :to="generateRoute({name: 'account/update-password'})">
+                    {{ $t('update_password') }}
                 </nuxt-link>
             </li>
         </ul>

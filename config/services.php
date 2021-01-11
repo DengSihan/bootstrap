@@ -48,4 +48,11 @@ return [
         'redirect' => env('API_URL') . '/auth/socials/weixin/authorizations/callback',
     ],
 
+    'telegram' => [
+        'bot' => env('TELEGRAM_BOT_NAME'),
+        'client_id' => null,
+        'client_secret' => env('TELEGRAM_TOKEN'),
+        'redirect' => env('API_URL') . '/auth/socials/telegram/authorizations/callback',
+    ]
+
 ];

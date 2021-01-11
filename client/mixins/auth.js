@@ -1,18 +1,18 @@
 import NameInput from '@/components/auth/form/name-input';
 import PasswordInput from '@/components/auth/form/password-input';
 import RememberMeCheckbox from '@/components/auth/form/remember-me-checkbox';
-import CaptchaInput from '@/components/auth/form/captcha-input';
 import Social from '@/components/auth/social';
 import token from '@/mixins/token';
+import captcha from '@/mixins/captcha';
 export default{
     mixins: [
-        token
+        token,
+        captcha
     ],
     components: {
         NameInput,
         PasswordInput,
         RememberMeCheckbox,
-        CaptchaInput,
         Social
     },
     middleware: 'guest',
@@ -33,14 +33,6 @@ export default{
             }
         }
     },
-    asyncData({ $axios }){
-        return $axios.post(`/auth/captchas`)
-            .then(({ data }) => {
-                return {
-                    captcha: data
-                }
-            });
-    },
     watch: {
         'form.name'(value){
             if (value) this.errors.name = [];
@@ -53,12 +45,6 @@ export default{
         }
     },
     methods: {
-        refreshCaptcha(){
-            this.$axios.post(`/auth/captchas`)
-                .then(({ data }) => {
-                    this.captcha = data;
-                });
-        },
         makeRequest(api){
             this.$nuxt.$loading.start();
             this.loading = this.$vs.loading();
@@ -71,17 +57,9 @@ export default{
                 })
                 .catch(error => {
                     this.$nuxt.$loading.finish();
-                    loading.close();
+                    this.loading.close();
                     this.handleError(error);
                 });
-        },
-        handleError(error){
-            this.$nuxt.$loading.finish();
-            this.refreshCaptcha();
-            this.handleAxiosError(error);
-            for(const [key, value] of Object.entries(error.response.data.errors)){
-                this.errors[key] = value;
-            }
         }
     }
 }

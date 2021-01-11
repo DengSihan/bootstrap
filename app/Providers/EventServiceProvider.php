@@ -22,6 +22,7 @@ class EventServiceProvider extends ServiceProvider
             'SocialiteProviders\\Apple\\AppleExtendSocialite@handle',
             'SocialiteProviders\\GitHub\\GitHubExtendSocialite@handle',
             'SocialiteProviders\\Weixin\\WeixinExtendSocialite@handle',
+            'SocialiteProviders\\Telegram\\TelegramExtendSocialite@handle',
         ],
     ];
 

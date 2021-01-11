@@ -1,6 +1,6 @@
 <?php
 
-$socials = 'github|apple|weixin';
+$socials = 'github|apple|weixin|telegram';
 
 Route::group([
     'namespace' => 'Auth',
@@ -30,14 +30,19 @@ Route::group([
     // need authorizations
     Route::group([
         'middleware' => ['auth']
-    ], function(){
+    ], function() use ($socials){
         Route::patch('authorizations', 'AuthorizationsController@update');
         Route::delete('authorizations', 'AuthorizationsController@destroy');
 
         // get user info
-        Route::get('user', 'UsersController@show');
+        Route::get('user', 'UserController@show');
         // all social account
-        Route::get('user/social', 'UsersController@social');
+        Route::get('user/social', 'UserController@social');
+        // update password
+        Route::put('user/password', 'UserController@updatePassword');
+        // delete social account bind
+        Route::delete('user/social/{type}', 'UserController@destroySocial')
+            ->where('type', $socials);
     });
 
 });

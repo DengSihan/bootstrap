@@ -7,7 +7,7 @@
         @input="$emit('input', $event)"
         :autocomplete="autocomplete"
         type="password"
-        name="new-password"
+        :name="name"
         required
         :label-placeholder="$t('password').toCapitalizePhrases()">
         <template #icon>

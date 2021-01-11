@@ -25,6 +25,11 @@ export default{
             key: 'weixin',
             icon: 'wechat',
             color: '#07c160'
+        },
+        {
+            key: 'telegram',
+            icon: 'telegram',
+            color: '#0088cc'
         }
     ]
 }

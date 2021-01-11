@@ -12,8 +12,13 @@ const routes = [
         component: page('account/index')
     },
     {
+        path: '/account/update-password',
+        name: 'account/update-password',
+        component: page('account/update-password')
+    },
+    {
         path: '/account/social',
-        name: 'account-social',
+        name: 'account/social',
         component: page('account/social')
     },
     {
@@ -28,12 +33,12 @@ const routes = [
     },
     {
         path: '/social-login/:social',
-        name: 'social-login',
+        name: 'social-login/social',
         component: page('social-login')
     },
     {
         path: '/social-certificate/:certificate',
-        name: 'social-certificate',
+        name: 'social-certificate/certificate',
         component: page('social-certificate')
     },
     {

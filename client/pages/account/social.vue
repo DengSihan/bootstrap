@@ -1,27 +1,20 @@
 <template>
-    <main>
+    <main class="mx-auto w-full sm:w-full md:w-2/3 lg:w-1/3 xl:w-1/4">
         <ul>
             <li v-for="social in socials"
-                :key="social.key">
-                <i class="mdi text-2xl pr-2"
+                :key="social.key"
+                v-if="data[social.key]"
+                class="flex justify-between items-center">
+                <i class="mdi text-3xl pr-2"
                     :class="`mdi-${social.icon}`"
                     :style="{
                         color: social.color
                     }"></i>
-                <template v-if="data[social.key]">
-                    <form @submit.prevent="unbind(social.key)">
-                        <vs-button danger type="submit" square>
-                            {{ $t('unbind') }}
-                        </vs-button>
-                    </form>
-                </template>
-                <template v-else>
-                    <form @submit.prevent="bind(social.key)">
-                        <vs-button type="submit" square>
-                            {{ $t('bind') }}
-                        </vs-button>
-                    </form>
-                </template>
+                <form @submit.prevent="unbind(social.key)">
+                    <vs-button danger type="submit" square>
+                        {{ $t('unbind').toUpperCase() }}<i class="mdi mdi-account-remove text-2xl pl-2"></i>
+                    </vs-button>
+                </form>
             </li>
         </ul>
     </main>
@@ -50,10 +43,21 @@ export default{
     },
     methods: {
         unbind(type){
-
+            let loading = this.$vs.loading();
+            this.$axios.delete(`/auth/user/social/${type}`)
+                .then(() => {
+                    this.reloadSocialInfo();
+                    loading.close();
+                })
+                .catch(error => {
+                    loading.close();
+                });
         },
-        bind(type){
-
+        reloadSocialInfo(){
+            this.$axios.get(`/auth/user/social`)
+                .then(({ data }) => {
+                    this.data = data;
+                });
         }
     }
 }
