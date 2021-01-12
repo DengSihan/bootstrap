@@ -1,6 +1,6 @@
 <?php
 
-$socials = 'github|apple|weixin|telegram';
+$socials = implode('|', array_diff(array_keys(config('services')), ['mailgun','postmark','ses']));
 
 Route::group([
     'namespace' => 'Auth',

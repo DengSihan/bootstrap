@@ -44,7 +44,7 @@ class FormRequest extends Request
                 'required',
                 function($attribute, $value, $fail){
                     $captcha = Cache::get($this->input('captcha_key'));
-                    if (!hash_equals($captcha['value'], $this->input('verification'))) {
+                    if (!hash_equals($captcha['value'], $value)) {
                         return $fail(__('captcha.error_value'));
                     }
                     else{

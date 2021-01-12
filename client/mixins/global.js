@@ -2,6 +2,11 @@ import Vue from 'vue';
 import { mapGetters } from 'vuex';
 import config from '@/config';
 Vue.mixin({
+    destroyed(){
+        for (let tooltip of document.getElementsByClassName('vs-tooltip')) {
+            tooltip.remove();
+        }
+    },
     computed: mapGetters({
         logged: 'auth/user'
     }),

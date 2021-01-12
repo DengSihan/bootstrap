@@ -15,9 +15,3 @@ use Illuminate\Support\Facades\Route;
 */
 
 include_once 'api/auth.php';
-
-Route::get('/email/verification', function () {
-
-
-    return new \App\Mail\Auth\VerificationEmail('123456');
-});

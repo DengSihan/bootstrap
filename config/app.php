@@ -83,7 +83,7 @@ return [
     */
 
     'locale' => env('APP_LOCALE', 'en'),
-    'locales_available' => explode(',', env('LOCALES_AVAILABLE', 'en-US,zh-CN')),
+    'locales_available' => explode(',', env('LOCALES_AVAILABLE', 'en,zh-CN')),
 
     /*
     |--------------------------------------------------------------------------
