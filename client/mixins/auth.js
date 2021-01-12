@@ -1,6 +1,7 @@
 import EmailInput from '@/components/auth/form/email-input';
 import PasswordInput from '@/components/auth/form/password-input';
 import RememberMeCheckbox from '@/components/auth/form/remember-me-checkbox';
+import EmailVerificationInput from '@/components/auth/form/email-verification-input';
 import Social from '@/components/auth/social';
 import token from '@/mixins/token';
 import captcha from '@/mixins/captcha';
@@ -13,6 +14,7 @@ export default{
         EmailInput,
         PasswordInput,
         RememberMeCheckbox,
+        EmailVerificationInput,
         Social
     },
     middleware: 'guest',
@@ -23,13 +25,15 @@ export default{
             form: {
                 email: '',
                 password: '',
-                verification: ''
+                verification: '',
+                email_verification: ''
             },
 
             errors: {
                 email: [],
                 password: [],
-                verification: []
+                verification: [],
+                email_verification: []
             }
         }
     },
@@ -42,6 +46,9 @@ export default{
         },
         'form.verification'(value){
             if (value) this.errors.verification = [];
+        },
+        'form.email_verification'(value){
+            if (value) this.errors.email_verification = [];
         }
     },
     methods: {

@@ -63,14 +63,7 @@ class SocialAuthorizationsController extends Controller
     }
 
     public function tokens(SocialTokenRequest $request){
-        $cache_key = 'certificate_' . $request->certificate;
-        $id = Cache::get($cache_key);
-
-        $user = User::find($id);
-
-        Cache::forget($cache_key);
-        $token = Auth::setTTL(config('auth.validity_period'))->login($user);
-        return response()->json($this->respondWithToken($token), 201);
+        return $this->verifyByCache('certificate_' . $request->certificate);
     }
 
     public function redirect(String $type){

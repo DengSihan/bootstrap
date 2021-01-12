@@ -9,8 +9,9 @@ use Illuminate\Notifications\Notifiable;
 
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Spatie\Permission\Traits\HasRoles;
+use Illuminate\Contracts\Translation\HasLocalePreference;
 
-class User extends Authenticatable implements JWTSubject
+class User extends Authenticatable implements JWTSubject, HasLocalePreference
 {
     use HasFactory, Notifiable, HasRoles, Uuid;
 
@@ -34,8 +35,7 @@ class User extends Authenticatable implements JWTSubject
      */
     protected $hidden = [
         'password',
-        'social',
-        'email'
+        'social'
     ];
 
     /**
@@ -58,5 +58,9 @@ class User extends Authenticatable implements JWTSubject
 
     public function getJWTCustomClaims(){
         return [];
+    }
+
+    public function preferredLocale(){
+        return config('app.locale');
     }
 }

@@ -30,6 +30,12 @@ Route::group([
     // register
     Route::post('users', 'UserController@store');
 
+    // send email verification
+    Route::post('email-verifications', 'UserController@sendEmailVerification');
+
+    // verify email verification
+    Route::patch('email-verifications', 'UserController@verifyResetByEmail');
+
     // need authorizations
     Route::group([
         'middleware' => ['auth']

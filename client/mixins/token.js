@@ -1,7 +1,8 @@
 export default{
     data(){
         return {
-            loading: null
+            loading: null,
+            from: this.$route.query.from
         }
     },
     methods: {
@@ -17,7 +18,7 @@ export default{
             this.$store.dispatch('auth/fetchUser').then(() => {
                 this.$nuxt.$loading.finish();
                 this.loading ? this.loading.close() : true;
-                this.$router.push(this.logged ? this.$route.query.from || '/' : this.$route.path);
+                this.$router.push(this.logged ?  this.from || '/' : this.$route.path);
             });
         }
     }
