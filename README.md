@@ -8,6 +8,7 @@ Start your project that has perfect SEO and user experience which is composed of
 4. [Vuesax (with light/dark mode)](http://vuesax.com/)
 5. PWA support
 6. I18n support
+7. Get [Elasticsearch](https://github.com/elastic/elasticsearch) started quickly 
 
 ### Content
 1. Authorizations System by Email with Social Accounts Support (default: github\apple\weixin\telegram, by [Socialite Providers](https://socialiteproviders.netlify.com/))
