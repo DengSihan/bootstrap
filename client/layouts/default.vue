@@ -11,14 +11,11 @@ import CustomNuxt from '@/components/layouts/custom-nuxt';
 import CustomHeader from '@/components/layouts/custom-header';
 import CustomFooter from '@/components/layouts/custom-footer';
 import Sidebar from '@/components/layouts/sidebar';
+import layout from '@/mixins/layout';
 export default{
-    head(){
-        return {
-            htmlAttrs: {
-                lang: this.$store.state.locale.locale
-            }
-        }
-    },
+    mixins: [
+        layout
+    ],
     components: {
         CustomNuxt,
         CustomHeader,

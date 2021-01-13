@@ -8,6 +8,11 @@ export const actions = {
             commit('auth/setToken', token);
         }
 
+        const theme = cookieFromRequest(req, 'theme');
+        if (!!theme) {
+            commit('theme/setTheme', theme);
+        }
+
         const locale = localeFromRequest(req);
         if (!!locale) {
             commit('locale/setLocale', locale);

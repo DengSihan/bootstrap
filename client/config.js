@@ -31,5 +31,8 @@ export default{
             icon: 'telegram',
             color: '#0088cc'
         }
-    ]
+    ],
+    theme: {
+        default: 'light'
+    }
 }
