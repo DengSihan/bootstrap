@@ -1,11 +1,10 @@
 <?php
 namespace App\Providers;
 
-use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\ServiceProvider;
 use Elasticsearch\ClientBuilder as ESClientBuilder;
 
-class ElasticsearchServiceProvider extends ServiceProvider implements DeferrableProvider
+class ElasticsearchServiceProvider extends ServiceProvider
 {
     /**
      * Register services.
@@ -23,10 +22,5 @@ class ElasticsearchServiceProvider extends ServiceProvider implements Deferrable
             }
             return $builder->build();
         });
-    }
-
-    public function provides()
-    {
-        return [ESClientBuilder::class];
     }
 }
