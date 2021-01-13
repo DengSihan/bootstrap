@@ -11,9 +11,12 @@ use Tymon\JWTAuth\Contracts\JWTSubject;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Contracts\Translation\HasLocalePreference;
 
-class User extends Authenticatable implements JWTSubject, HasLocalePreference
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Arr;
+
+class User extends Authenticatable implements JWTSubject, HasLocalePreference, Searchable
 {
-    use HasFactory, Notifiable, HasRoles, Uuid;
+    use HasFactory, Notifiable, HasRoles, Uuid, SearchHelper;
 
     /**
      * The attributes that are mass assignable.
@@ -62,5 +65,37 @@ class User extends Authenticatable implements JWTSubject, HasLocalePreference
 
     public function preferredLocale(){
         return config('app.locale');
+    }
+
+
+    /**
+     * for elasticsearch
+     */
+    public static function getAliasName(){
+        return 'users';
+    }
+    public static function getProperties(){
+        return [
+            'id' => [
+                'type' => 'text',
+                'analyzer' => 'standard'
+            ],
+            'name' => [
+                'type' => 'text',
+                'analyzer' => 'standard'
+            ],
+            'email' => [
+                'type' => 'text',
+                'analyzer' => 'standard'
+            ]
+        ];
+    }
+    public function toESArray(){
+        return Arr::only((array) DB::table('users')->find($this->id), [
+                'id',
+                'name',
+                'email'
+            ]
+        );
     }
 }
