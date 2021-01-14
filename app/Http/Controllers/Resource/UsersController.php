@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 use App\Models\User;
 use App\SearchBuilders\UserSearchBuilder;
+use App\Events\SendNotification;
 
 class UsersController extends Controller
 {
@@ -15,5 +16,9 @@ class UsersController extends Controller
         $keywords = array_filter(explode(' ', $request->input('keywords', '')));
 
         return $builder->keywords($keywords)->query()->limit(5)->get()->toArray();
+    }
+
+    public function notify(){
+        broadcast(new SendNotification(\Auth::user()));
     }
 }

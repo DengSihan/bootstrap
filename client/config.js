@@ -34,5 +34,10 @@ export default{
     ],
     theme: {
         default: 'light'
+    },
+    websockets: {
+        host: process.env.WEBSOCKETS_DOMAIN,
+        port: process.env.WEBSOCKETS_PORT,
+        key: process.env.PUSHER_APP_KEY
     }
 }

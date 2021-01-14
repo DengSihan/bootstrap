@@ -18,7 +18,7 @@ Start your project that has perfect SEO and user experience which is composed of
     ```
     proxy_set_header X-Forwarded-For $remote_addr;
 
-    location /api/ {
+    location ~* ^/(api|broadcasting)/ {
         try_files $uri $uri/ /index.php?$query_string;
     }
     location / {
