@@ -6,6 +6,7 @@ Start your project that has perfect SEO and user experience which is composed of
 ### Install
 ```shell
 composer create-project dengsihan/laravel-nuxt-bootstrap
+php artisan migrate
 npm install --no-bin-links
 php artisan websockets:serve &
 npm run dev
