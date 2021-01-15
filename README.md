@@ -1,7 +1,4 @@
-<p style="display: flex;justify-content: center;margin: 0rem -0.5rem 2rem -0.5rem;">
-    <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" style="height: 100px;margin: 0rem 0.5rem;">
-    <img style="height: 100px;margin: 0rem 0.5rem;" src="https://github.com/nuxt/nuxt.js/raw/dev/.github/nuxt.png"/>
-</p>
+<p align="center" style="margin:2rem -0.5rem;"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" style="margin:0rem 0.5rem;" height="100"/><img style="margin:0rem 0.5rem;" src="https://github.com/nuxt/nuxt.js/raw/dev/.github/nuxt.png" height="100"/></p>
 
 # Nuxt-Laravel Quick Bootstrap Template
 Start your project that has perfect SEO and user experience which is composed of Nuxtjs as its frontend and Laravel as backend.
