@@ -3,8 +3,12 @@ import { mapGetters } from 'vuex';
 import config from '@/config';
 Vue.mixin({
     destroyed(){
-        for (let tooltip of document.getElementsByClassName('vs-tooltip')) {
-            tooltip.remove();
+        try{
+            for (let tooltip of document.getElementsByClassName('vs-tooltip')) {
+                tooltip.remove();
+            }
+        }catch(e){
+            console.error(e);
         }
     },
     computed: mapGetters({

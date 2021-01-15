@@ -1,0 +1,7 @@
+button.vs-button{
+    transform: scale(1);
+    transition: transform .2s cubic-bezier(0, 0.6, 0.6, 2);
+    &:active{
+        transform: translate(0, -3px) scale(0.975);
+    }
+}

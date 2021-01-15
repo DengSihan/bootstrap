@@ -23,6 +23,5 @@ class UsersController extends Controller
         $user = \Auth::user();
         broadcast(new EventNotification($user));
         $user->notify(new ExampleNotification('test'));
-
     }
 }

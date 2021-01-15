@@ -27,9 +27,6 @@
                         {{ $t('account') }}
                     </nuxt-link>
                 </li>
-                <vs-button @click="notify()">
-                    send notification
-                </vs-button>
             </template>
         </ul>
     </main>
@@ -41,11 +38,6 @@ export default{
         return {
             title: `${config.app.name} | ${config.app.description}`,
             titleTemplate: null
-        }
-    },
-    methods: {
-        notify(){
-            this.$axios.post(`/users/notifications`);
         }
     }
 }

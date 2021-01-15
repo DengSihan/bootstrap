@@ -7,7 +7,7 @@ export default{
                 lang: this.locale
             },
             bodyAttrs: {
-                class: this.realTheme,
+                class: `${this.realTheme} ${this.realTheme === 'dark' ? 'mode-dark' : ''}`.trim(),
                 'vs-theme': this.realTheme
             }
         }

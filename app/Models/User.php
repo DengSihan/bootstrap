@@ -38,7 +38,8 @@ class User extends Authenticatable implements JWTSubject, HasLocalePreference, S
      */
     protected $hidden = [
         'password',
-        'social'
+        'social',
+        'email'
     ];
 
     /**

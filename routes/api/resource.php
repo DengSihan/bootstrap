@@ -7,6 +7,4 @@ Route::group([
 
     Route::get('/users', 'UsersController@index');
 
-    Route::post('/users/notifications', 'UsersController@notify');
-
 });
