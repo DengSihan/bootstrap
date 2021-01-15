@@ -15,10 +15,6 @@ use App\Models\User;
 |
 */
 
-Broadcast::channel('users', function(User $user){
-    return $user;
-});
-
-Broadcast::channel('users.{id}', function(User $user, String $id){
-    return $id == $user->id;
+Broadcast::channel('App.Models.User.{id}', function(User $user, String $id){
+    return $id === $user->id;
 });

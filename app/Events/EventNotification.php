@@ -13,7 +13,7 @@ use Illuminate\Queue\SerializesModels;
 use App\Models\User;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcastNow;
 
-class SendNotification implements ShouldBroadcastNow
+class EventNotification implements ShouldBroadcastNow
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -36,7 +36,7 @@ class SendNotification implements ShouldBroadcastNow
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('users.'.$this->user->id);
+        return new PrivateChannel('App.Models.User.'.$this->user->id);
     }
 
     public function broadcastWith(){

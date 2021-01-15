@@ -13,7 +13,6 @@ module.exports = {
         { src: '~/plugins/lazyload', ssr: false },
         { src: '~/plugins/localforage', ssr: false },
         { src: '~/plugins/waves-effect', ssr: false },
-        { src: '~/plugins/echo', ssr: false },
         '~/mixins/global',
     ],
 

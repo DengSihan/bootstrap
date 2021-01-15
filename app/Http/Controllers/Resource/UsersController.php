@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 
 use App\Models\User;
 use App\SearchBuilders\UserSearchBuilder;
-use App\Events\SendNotification;
+use App\Events\EventNotification;
+use App\Notifications\ExampleNotification;
 
 class UsersController extends Controller
 {
@@ -19,6 +20,9 @@ class UsersController extends Controller
     }
 
     public function notify(){
-        broadcast(new SendNotification(\Auth::user()));
+        $user = \Auth::user();
+        broadcast(new EventNotification($user));
+        $user->notify(new ExampleNotification('test'));
+
     }
 }
