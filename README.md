@@ -3,6 +3,11 @@
 # Nuxt-Laravel Quick Bootstrap Template
 Start your project that has perfect SEO and user experience which is composed of Nuxtjs as its frontend and Laravel as backend.
 
+### Install
+```shell
+composer create-project dengsihan/laravel-nuxt-bootstrap
+```
+
 ### Features
 1. [**Nuxtjs**](https://nuxtjs.org/) in SSR
 2. [**Laravel**](https://laravel.com/) backend
