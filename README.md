@@ -45,3 +45,6 @@ npm run dev
     autorestart=true
     user=sudo-www
     ```
+
+### License
+MIT
