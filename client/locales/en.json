@@ -8,7 +8,7 @@
     "remember_me": "remember me",
     "new_here": "new here?",
     "forget_password": "forget password",
-    "have_account": "have a account",
+    "have_account": "have an account",
     "send_email_verification": "send email verification",
     "email_verification": "email verification",
     "check_verification": "check verification",
@@ -23,7 +23,7 @@
     "unbind": "unbind",
     "bind": "bind",
     "login_as_new_user": "login as a new user",
-    "bind_to_exist_account": "bind to a exist account",
+    "bind_to_exist_account": "bind to an exist account",
     "logging_in": "logging in",
     "update_password": "update password"
 }
