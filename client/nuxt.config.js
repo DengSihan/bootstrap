@@ -81,7 +81,8 @@ module.exports = {
         },
         manifest: {
             name: process.env.APP_NAME,
-            description: process.env.APP_DESCRIPTION
+            description: process.env.APP_DESCRIPTION,
+            short_name: process.env.APP_NAME
         }
     },
 
