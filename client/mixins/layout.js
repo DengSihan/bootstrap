@@ -30,6 +30,7 @@ export default{
             handler(value){
                 if (process.client) {
                     value === 'system' ? this.bootstrapListener() : this.destroyListener();
+                    this.bootstrapTheme();
                 }
             }
         },

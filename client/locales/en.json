@@ -1,4 +1,5 @@
 {
+    "locale": "english",
     "login": "login",
     "name": "name",
     "email": "email",
@@ -25,5 +26,9 @@
     "login_as_new_user": "login as a new user",
     "bind_to_exist_account": "bind to an exist account",
     "logging_in": "logging in",
-    "update_password": "update password"
+    "update_password": "update password",
+    "theme": "theme",
+    "system": "follow the system",
+    "light": "light",
+    "dark": "dark"
 }

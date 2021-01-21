@@ -1,3 +1,5 @@
+import Cookie from 'js-cookie';
+
 export const namespace = true;
 
 export const state = () => ({
@@ -11,5 +13,6 @@ export const getters = {
 export const mutations = {
     setTheme(state, theme){
         state.theme = theme;
+        Cookie.set('theme', theme, 365);
     }
 };

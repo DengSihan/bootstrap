@@ -1,4 +1,5 @@
 {
+    "locale": "简体中文",
     "login": "登录",
     "name": "用户名",
     "email": "电子邮箱",
@@ -25,5 +26,9 @@
     "login_as_new_user": "以新账号登录",
     "bind_to_exist_account": "绑定到已有账户",
     "logging_in": "登录中",
-    "update_password": "更新密码"
+    "update_password": "更新密码",
+    "theme": "主题",
+    "system": "跟随系统",
+    "light": "明亮",
+    "dark": "暗黑"
 }
